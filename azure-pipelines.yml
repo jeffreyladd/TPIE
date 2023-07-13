@@ -1,0 +1,28 @@
+name: $(majorMinorVersion).$(semanticVersion) # $(rev:r) 
+
+trigger:
+- master
+
+variables:
+  majorMinorVersion: 0.0
+  semanticVersion: $[counter(variables['majorMinorVersion'], 0)]
+
+pool:
+  vmImage: windows-latest
+
+stages:
+  - stage: 'BuildAndCompile'
+    displayName: 'Build'
+    jobs:
+      - job: 
+        steps:
+            - task: DotNetCoreCLI@2
+              displayName: 'nuget restore App'
+              inputs:
+                command: 'restore'
+                projects: 'src\TPIE.Web\TPIE.Web.csproj'
+            - task: DotNetCoreCLI@2
+              displayName: 'dotnet build App'
+              inputs:
+                command: 'build'
+                projects: 'src\TPIE.Web\TPIE.Web.csproj'
