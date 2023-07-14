@@ -1,7 +1,15 @@
 name: $(majorMinorVersion).$(semanticVersion) # $(rev:r) 
 
 trigger:
+  branches:
+    include:
+    - master
+  tags:
+   include:
+    - '*'
+pr:
 - master
+
 
 variables:
   majorMinorVersion: 0.0
@@ -66,7 +74,7 @@ stages:
   - stage: 'BuildAndRelease'
     displayName: 'Build and Release'
     dependsOn: BuildAndCompile
-    #condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
+    #condition: eq(variables['Build.SourceBranch'], 'refs/tags/*')
     jobs:
       - job: 
         steps:
@@ -102,30 +110,42 @@ stages:
               inputs:
                 command: 'restore'
                 projects: 'src\TPIE.Wpf\TPIE.Wpf.csproj'
-            - task: DotNetCoreCLI@2
+            - task: CmdLine@2
               displayName: 'Publish Web'
               inputs:
-                command: 'publish'
-                publishWebProjects: true
-                arguments: '-o $(Build.ArtifactStagingDirectory)/publish/TPIE.Web -c Release'
-                modifyOutputPath: false
-                workingDirectory: 'src\TPIE.Web'
-            - task: DotNetCoreCLI@2
-              displayName: 'Publish App'
-              inputs:
-                command: 'publish'
-                publishWebProjects: true
-                arguments: '-o $(Build.ArtifactStagingDirectory)/publish/TPIE.App -c Release'
-                modifyOutputPath: false
-                workingDirectory: 'src\TPIE.App'
-            - task: DotNetCoreCLI@2
+                script: 'dotnet publish src\TPIE.Web\TPIE.Web.csproj -o $(Build.ArtifactStagingDirectory)/publish/TPIE.Web -c Release'
+            - task: CmdLine@2
               displayName: 'Publish Wpf'
               inputs:
-                command: 'publish'
-                publishWebProjects: true
-                arguments: '-o $(Build.ArtifactStagingDirectory)/publish/TPIE.Wpf -c Release'
-                modifyOutputPath: false
-                workingDirectory: 'src\TPIE.Wpf'
+                script: 'dotnet publish src\TPIE.Wpf\TPIE.Wpf.csproj -o $(Build.ArtifactStagingDirectory)/publish/TPIE.Wpf -c Release'
+            - task: CmdLine@2
+              displayName: 'Publish App'
+              inputs:
+                script: 'dotnet publish src\TPIE.App\TPIE.App.csproj -f net7.0-windows10.0.19041.0 -p:RuntimeIdentifierOverride=win10-x64  -o $(Build.ArtifactStagingDirectory)/publish/TPIE.App -c Release'
+            #- task: DotNetCoreCLI@2
+            #  displayName: 'Publish Web'
+            #  inputs:
+            #    command: 'publish'
+            #    publishWebProjects: true
+            #    arguments: '-o $(Build.ArtifactStagingDirectory)/publish/TPIE.Web -c Release'
+            #    modifyOutputPath: false
+            #    workingDirectory: 'src\TPIE.Web'
+            #- task: DotNetCoreCLI@2
+            #  displayName: 'Publish App'
+            #  inputs:
+            #    command: 'publish'
+            #    publishWebProjects: true
+            #    arguments: '-o $(Build.ArtifactStagingDirectory)/publish/TPIE.App -c Release'
+            #    modifyOutputPath: false
+            #    workingDirectory: 'src\TPIE.App'
+            #- task: DotNetCoreCLI@2
+            #  displayName: 'Publish Wpf'
+            #  inputs:
+            #    command: 'publish'
+            #    publishWebProjects: true
+            #    arguments: '-o $(Build.ArtifactStagingDirectory)/publish/TPIE.Wpf -c Release'
+            #    modifyOutputPath: false
+            #    workingDirectory: 'src\TPIE.Wpf'
             - task: PublishPipelineArtifact@1
               inputs:
                 targetPath: $(Build.ArtifactStagingDirectory)/publish
