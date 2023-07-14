@@ -28,7 +28,7 @@ stages:
             - task: Npm@1
               displayName: 'npm install'
               inputs:
-                workingDirectory: 'src\TPIE'
+                workingDir: 'src\TPIE'
                 verbose: true
             - script: 'npx webpack --config webpack.config.js'
               workingDirectory: 'src\TPIE'
