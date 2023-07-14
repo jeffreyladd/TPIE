@@ -37,7 +37,7 @@ stages:
             - task: Npm@1
               displayName: 'npm install'
               inputs:
-                workingDir: 'src\TPIE'
+                workingDir: 'src\TPIE.UI'
                 verbose: true
             - script: 'npx webpack --config webpack.config.js'
               workingDirectory: 'src\TPIE'
@@ -94,7 +94,7 @@ stages:
                 workingDir: 'src\TPIE'
                 verbose: true
             - script: 'npx webpack --config webpack.config.js'
-              workingDirectory: 'src\TPIE'
+              workingDirectory: 'src\TPIE.UI'
               displayName: 'webpack js build'
             - task: DotNetCoreCLI@2
               displayName: 'nuget restore Web'
