@@ -1,0 +1,63 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33829.357
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPIE.Web", "TPIE.Web\TPIE.Web.csproj", "{AA49B570-79BC-46A0-858C-BCC8C704E989}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{491C081A-4E02-4037-86D8-54B8C2A695F6}"
+	ProjectSection(SolutionItems) = preProject
+		Build.targets = Build.targets
+		Build.UI.targets = Build.UI.targets
+		Version.targets = Version.targets
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPIE.App", "TPIE.App\TPIE.App.csproj", "{A32D2D85-A20E-42FC-82A1-9A9C10B4BB06}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPIE.Data", "TPIE.Data\TPIE.Data.csproj", "{88930303-7ED6-4DD6-A890-F37A416B5798}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPIE.Wpf", "TPIE.Wpf\TPIE.Wpf.csproj", "{91E94A98-7EC0-46C2-A2EB-5277317A1BFB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPIE.UI", "TPIE.UI\TPIE.UI.csproj", "{8CF46DB1-AD5E-42EA-BF1E-6C283B1ED156}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA49B570-79BC-46A0-858C-BCC8C704E989}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA49B570-79BC-46A0-858C-BCC8C704E989}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA49B570-79BC-46A0-858C-BCC8C704E989}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA49B570-79BC-46A0-858C-BCC8C704E989}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A32D2D85-A20E-42FC-82A1-9A9C10B4BB06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A32D2D85-A20E-42FC-82A1-9A9C10B4BB06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A32D2D85-A20E-42FC-82A1-9A9C10B4BB06}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{A32D2D85-A20E-42FC-82A1-9A9C10B4BB06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A32D2D85-A20E-42FC-82A1-9A9C10B4BB06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A32D2D85-A20E-42FC-82A1-9A9C10B4BB06}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{88930303-7ED6-4DD6-A890-F37A416B5798}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88930303-7ED6-4DD6-A890-F37A416B5798}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88930303-7ED6-4DD6-A890-F37A416B5798}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88930303-7ED6-4DD6-A890-F37A416B5798}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91E94A98-7EC0-46C2-A2EB-5277317A1BFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91E94A98-7EC0-46C2-A2EB-5277317A1BFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91E94A98-7EC0-46C2-A2EB-5277317A1BFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91E94A98-7EC0-46C2-A2EB-5277317A1BFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CF46DB1-AD5E-42EA-BF1E-6C283B1ED156}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CF46DB1-AD5E-42EA-BF1E-6C283B1ED156}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CF46DB1-AD5E-42EA-BF1E-6C283B1ED156}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CF46DB1-AD5E-42EA-BF1E-6C283B1ED156}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AA49B570-79BC-46A0-858C-BCC8C704E989} = {491C081A-4E02-4037-86D8-54B8C2A695F6}
+		{A32D2D85-A20E-42FC-82A1-9A9C10B4BB06} = {491C081A-4E02-4037-86D8-54B8C2A695F6}
+		{91E94A98-7EC0-46C2-A2EB-5277317A1BFB} = {491C081A-4E02-4037-86D8-54B8C2A695F6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2EA435C3-7672-406F-A62E-4F457CFF3135}
+	EndGlobalSection
+EndGlobal

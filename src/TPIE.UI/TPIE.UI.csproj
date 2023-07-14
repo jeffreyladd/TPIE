@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+	<Import Project="../Build.targets" />
+
+	<PropertyGroup>
+		<PackageId>TPIE.UI</PackageId>
+	</PropertyGroup>
+
+
+  <!--<ItemGroup>
+    <SupportedPlatform Include="browser" />
+  </ItemGroup>-->
+
+  <ItemGroup>
+    <PackageReference Include="Blazorise" Version="1.2.4" />
+    <PackageReference Include="Blazorise.Bulma" Version="1.2.4" />
+    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.2.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TPIE.Data\TPIE.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="_Imports.razor">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+</Project>
