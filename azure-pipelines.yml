@@ -25,6 +25,14 @@ stages:
               displayName: 'Install dotnet workloads'
               inputs:
                 script: 'dotnet workload restore src/TPIE.sln'
+            - task: Npm@1
+              displayName: 'npm install'
+              inputs:
+                workingDirectory: 'src\TPIE'
+                verbose: true
+            - script: 'npx webpack --config webpack.config.js'
+              workingDirectory: 'src\TPIE'
+              displayName: 'webpack js build'
             - task: DotNetCoreCLI@2
               displayName: 'nuget restore Web'
               inputs:
@@ -35,6 +43,11 @@ stages:
               inputs:
                 command: 'restore'
                 projects: 'src\TPIE.App\TPIE.App.csproj'
+             - task: DotNetCoreCLI@2
+              displayName: 'nuget restore Wpf'
+              inputs:
+                command: 'restore'
+                projects: 'src\TPIE.Wpf\TPIE.Wpf.csproj'
             - task: DotNetCoreCLI@2
               displayName: 'dotnet build Web'
               inputs:
@@ -45,3 +58,8 @@ stages:
               inputs:
                 command: 'build'
                 projects: 'src\TPIE.App\TPIE.App.csproj'
+            - task: DotNetCoreCLI@2
+              displayName: 'dotnet build Wpf'
+              inputs:
+                command: 'build'
+                projects: 'src\TPIE.Wpf\TPIE.Wpf.csproj'
