@@ -9,13 +9,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{491C081A-4E02-
 	ProjectSection(SolutionItems) = preProject
 		Build.targets = Build.targets
 		Build.UI.targets = Build.UI.targets
+		Version.targets = Version.targets
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPIE.App", "TPIE.App\TPIE.App.csproj", "{A32D2D85-A20E-42FC-82A1-9A9C10B4BB06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPIE", "TPIE\TPIE.csproj", "{94EA3D64-490A-465C-AFF7-3190A9F7698C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPIE", "TPIE\TPIE.csproj", "{94EA3D64-490A-465C-AFF7-3190A9F7698C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TPIE.Data", "TPIE.Data\TPIE.Data.csproj", "{88930303-7ED6-4DD6-A890-F37A416B5798}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TPIE.Data", "TPIE.Data\TPIE.Data.csproj", "{88930303-7ED6-4DD6-A890-F37A416B5798}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
