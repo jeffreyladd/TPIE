@@ -43,7 +43,7 @@ stages:
               inputs:
                 command: 'restore'
                 projects: 'src\TPIE.App\TPIE.App.csproj'
-             - task: DotNetCoreCLI@2
+            - task: DotNetCoreCLI@2
               displayName: 'nuget restore Wpf'
               inputs:
                 command: 'restore'
