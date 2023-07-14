@@ -1,4 +1,4 @@
-name: $(majorMinorVersion).$(semanticVersion)-RC # $(rev:r) 
+name: $(majorMinorVersion).$(semanticVersion) # $(rev:r) 
 
 trigger:
   tags:
