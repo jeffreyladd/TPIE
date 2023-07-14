@@ -1,0 +1,8 @@
+<Project>
+  <Import Project="Build.targets"/>
+  <ItemGroup>
+    <ProjectReference Include="..\TPIE.Data\TPIE.Data.csproj" />
+    <ProjectReference Include="..\TPIE\TPIE.csproj" />
+  </ItemGroup>
+
+</Project>

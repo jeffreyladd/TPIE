@@ -17,12 +17,22 @@ stages:
       - job: 
         steps:
             - task: DotNetCoreCLI@2
+              displayName: 'nuget restore Web'
+              inputs:
+                command: 'restore'
+                projects: 'src\TPIE.Web\TPIE.Web.csproj'
+            - task: DotNetCoreCLI@2
               displayName: 'nuget restore App'
               inputs:
                 command: 'restore'
+                projects: 'src\TPIE.App\TPIE.App.csproj'
+            - task: DotNetCoreCLI@2
+              displayName: 'dotnet build Web'
+              inputs:
+                command: 'build'
                 projects: 'src\TPIE.Web\TPIE.Web.csproj'
             - task: DotNetCoreCLI@2
               displayName: 'dotnet build App'
               inputs:
                 command: 'build'
-                projects: 'src\TPIE.Web\TPIE.Web.csproj'
+                projects: 'src\TPIE.App\TPIE.App.csproj'
