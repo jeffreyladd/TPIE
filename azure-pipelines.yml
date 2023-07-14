@@ -16,6 +16,15 @@ stages:
     jobs:
       - job: 
         steps:
+            - task: UseDotNet@2
+              displayName: 'Install dotnet 7'
+              inputs:
+                packageType: 'sdk'
+                version: '7.x'
+            - task: CmdLine@2
+              displayName: 'Install dotnet workloads'
+              inputs:
+                script: 'dotnet workload restore src/TPIE.sln'
             - task: DotNetCoreCLI@2
               displayName: 'nuget restore Web'
               inputs:
