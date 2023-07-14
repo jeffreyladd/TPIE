@@ -3,7 +3,7 @@
 	<Import Project="../Build.targets" />
 
 	<PropertyGroup>
-		<PackageId>TPIE</PackageId>
+		<PackageId>TPIE.UI</PackageId>
 	</PropertyGroup>
 
 

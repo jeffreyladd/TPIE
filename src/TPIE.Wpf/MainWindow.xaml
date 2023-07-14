@@ -6,7 +6,7 @@
         xmlns:shell="http://schemas.microsoft.com/winfx/2006/xaml/presentation/shell"
         xmlns:blazor="clr-namespace:Microsoft.AspNetCore.Components.WebView.Wpf;assembly=Microsoft.AspNetCore.Components.WebView.Wpf"
         xmlns:local="clr-namespace:TPIE.Wpf"
-        xmlns:tpie="clr-namespace:TPIE;assembly=TPIE"
+        xmlns:tpie="clr-namespace:TPIE.UI;assembly=TPIE.UI"
         mc:Ignorable="d"
         Title="TPIE" WindowStyle="ThreeDBorderWindow">
     <Grid>
