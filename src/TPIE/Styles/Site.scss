@@ -161,11 +161,20 @@ button.button.is-enabled {
     background-color: rgb(72 95 199);
 }
 
+@media screen and (max-width: 1023px){
+    .navbar-menu {
+        background-color: $firstLevelBackgroundColor;
+    }
+} 
 
 //None Bulma and Blazorize Additions
 html {
     background-color: $backgroundColor;
     color: $fontColor;
+
+    main > article {
+        padding-top:25px;
+    }
 }
 
 #blazor-error-ui {

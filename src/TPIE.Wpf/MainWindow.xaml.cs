@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
-using TPIE.Data;
 
 namespace TPIE.Wpf;
 
