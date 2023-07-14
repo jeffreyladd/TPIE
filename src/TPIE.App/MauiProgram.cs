@@ -19,10 +19,10 @@ namespace TPIE.App
 
 #if DEBUG
 		builder.Services.AddBlazorWebViewDeveloperTools();
-		//builder.Logging.AddDebug();
+            //builder.Logging.AddDebug();
 #endif
 
-            builder.Services.AddSingleton<WeatherForecastService>();
+            builder.Services.SetupTPIE();
 
             return builder.Build();
         }

@@ -16,7 +16,7 @@ public partial class MainWindow : Window
         var serviceCollection = new ServiceCollection();
         serviceCollection.AddWpfBlazorWebView();
         serviceCollection.AddBlazorWebViewDeveloperTools();
-        serviceCollection.AddSingleton<WeatherForecastService>();
+        serviceCollection.SetupTPIE();
         Resources.Add("services", serviceCollection.BuildServiceProvider());
     }
 }
