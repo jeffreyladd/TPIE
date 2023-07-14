@@ -63,3 +63,70 @@ stages:
               inputs:
                 command: 'build'
                 projects: 'src\TPIE.Wpf\TPIE.Wpf.csproj'
+  - stage: 'BuildAndRelease'
+    displayName: 'Build and Release'
+    dependsOn: BuildAndCompile
+    #condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
+    jobs:
+      - job: 
+        steps:
+            - task: UseDotNet@2
+              displayName: 'Install dotnet 7'
+              inputs:
+                packageType: 'sdk'
+                version: '7.x'
+            - task: CmdLine@2
+              displayName: 'Install dotnet workloads'
+              inputs:
+                script: 'dotnet workload restore src/TPIE.sln'
+            - task: Npm@1
+              displayName: 'npm install'
+              inputs:
+                workingDir: 'src\TPIE'
+                verbose: true
+            - script: 'npx webpack --config webpack.config.js'
+              workingDirectory: 'src\TPIE'
+              displayName: 'webpack js build'
+            - task: DotNetCoreCLI@2
+              displayName: 'nuget restore Web'
+              inputs:
+                command: 'restore'
+                projects: 'src\TPIE.Web\TPIE.Web.csproj'
+            - task: DotNetCoreCLI@2
+              displayName: 'nuget restore App'
+              inputs:
+                command: 'restore'
+                projects: 'src\TPIE.App\TPIE.App.csproj'
+            - task: DotNetCoreCLI@2
+              displayName: 'nuget restore Wpf'
+              inputs:
+                command: 'restore'
+                projects: 'src\TPIE.Wpf\TPIE.Wpf.csproj'
+            - task: DotNetCoreCLI@2
+              displayName: 'Publish Web'
+              inputs:
+                command: 'publish'
+                publishWebProjects: true
+                arguments: 'src\TPIE.Web\TPIE.Web.csproj -o $(System.DefaultWorkingDirectory)/publish/TPIE.Web -c Release'
+                modifyOutputPath: false
+                workingDirectory: 'src\TPIE.Web'
+            - task: DotNetCoreCLI@2
+              displayName: 'Publish App'
+              inputs:
+                command: 'publish'
+                publishWebProjects: true
+                arguments: 'src\TPIE.App\TPIE.App.csproj -o $(System.DefaultWorkingDirectory)/publish/TPIE.App -c Release'
+                modifyOutputPath: false
+                workingDirectory: 'src\TPIE.App'
+            - task: DotNetCoreCLI@2
+              displayName: 'Publish Wpf'
+              inputs:
+                command: 'publish'
+                publishWebProjects: true
+                arguments: 'src\TPIE.Wpf\TPIE.Wpf.csproj -o $(System.DefaultWorkingDirectory)/publish/TPIE.Wpf -c Release'
+                modifyOutputPath: false
+                workingDirectory: 'src\TPIE.Wpf'
+            - task: PublishPipelineArtifact@1
+              inputs:
+                targetPath: $(System.DefaultWorkingDirectory)/publish
+                artifact: publish
