@@ -21,12 +21,10 @@ stages:
               inputs:
                 packageType: 'sdk'
                 version: '7.x'
-            - task: DotNetCoreCLI@2
+            - task: CmdLine@2
               displayName: 'Install dotnet workloads'
               inputs:
-                command: 'custom'
-                projects: 'src/TPIE.sln'
-                custom: 'workload restore'
+                script: 'dotnet workload restore src/TPIE.sln'
             - task: DotNetCoreCLI@2
               displayName: 'nuget restore Web'
               inputs:
