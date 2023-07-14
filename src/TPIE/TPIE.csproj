@@ -7,13 +7,16 @@
 	</PropertyGroup>
 
 
-  <ItemGroup>
+  <!--<ItemGroup>
     <SupportedPlatform Include="browser" />
-  </ItemGroup>
+  </ItemGroup>-->
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.0" />
+    <PackageReference Include="Blazorise" Version="1.2.4" />
+    <PackageReference Include="Blazorise.Bulma" Version="1.2.4" />
+    <PackageReference Include="Blazorise.Icons.FontAwesome" Version="1.2.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.9" />
   </ItemGroup>
 
   <ItemGroup>
