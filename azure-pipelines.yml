@@ -16,6 +16,10 @@ stages:
     jobs:
       - job: 
         steps:
+            - task: UseDotNet@2
+              inputs:
+                packageType: 'sdk'
+                version: '7.x'
             - task: DotNetCoreCLI@2
               displayName: 'nuget restore Web'
               inputs:
