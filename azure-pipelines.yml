@@ -107,7 +107,7 @@ stages:
               inputs:
                 command: 'publish'
                 publishWebProjects: true
-                arguments: 'src\TPIE.Web\TPIE.Web.csproj -o $(System.DefaultWorkingDirectory)/publish/TPIE.Web -c Release'
+                arguments: '-o $(Build.ArtifactStagingDirectory)/publish/TPIE.Web -c Release'
                 modifyOutputPath: false
                 workingDirectory: 'src\TPIE.Web'
             - task: DotNetCoreCLI@2
@@ -115,7 +115,7 @@ stages:
               inputs:
                 command: 'publish'
                 publishWebProjects: true
-                arguments: 'src\TPIE.App\TPIE.App.csproj -o $(System.DefaultWorkingDirectory)/publish/TPIE.App -c Release'
+                arguments: '-o $(Build.ArtifactStagingDirectory)/publish/TPIE.App -c Release'
                 modifyOutputPath: false
                 workingDirectory: 'src\TPIE.App'
             - task: DotNetCoreCLI@2
@@ -123,10 +123,10 @@ stages:
               inputs:
                 command: 'publish'
                 publishWebProjects: true
-                arguments: 'src\TPIE.Wpf\TPIE.Wpf.csproj -o $(System.DefaultWorkingDirectory)/publish/TPIE.Wpf -c Release'
+                arguments: '-o $(Build.ArtifactStagingDirectory)/publish/TPIE.Wpf -c Release'
                 modifyOutputPath: false
                 workingDirectory: 'src\TPIE.Wpf'
             - task: PublishPipelineArtifact@1
               inputs:
-                targetPath: $(System.DefaultWorkingDirectory)/publish
+                targetPath: $(Build.ArtifactStagingDirectory)/publish
                 artifact: publish
