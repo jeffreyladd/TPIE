@@ -20,6 +20,10 @@ steps:
     displayName: 'Install dotnet workloads'
     inputs:
       script: 'dotnet workload restore src/TPIE.sln'
+  - task: CmdLine@2
+    displayName: 'Install docfx'
+    inputs:
+      script: 'dotnet tool install -g docfx'
   - task: Npm@1
     displayName: 'npm install'
     inputs:
@@ -55,6 +59,11 @@ steps:
     inputs:
       command: 'build'
       projects: 'src\TPIE.App\TPIE.App.csproj'
+  - task: CmdLine@2
+    displayName: 'Build docfx'
+    inputs:
+      script: 'docfx build docfx.json'
+      workingDirectory: 'docfx_project'
   - task: DotNetCoreCLI@2
     displayName: 'dotnet build Wpf'
     enabled: ${{ eq(parameters.doPublish, false) }}
