@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
-	<Import Project="../Build.UI.targets"/>
-	<Import Project="../Version.targets"/>
+	<Import Project="../Build.UI.targets" />
+	<Import Project="../Version.targets" />
     <PropertyGroup>
         <!--<TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>-->
         <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
@@ -43,6 +43,11 @@
 
         <!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
         <MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="..\appsettings.Development.json" Link="appsettings.Development.json" />
+      <EmbeddedResource Include="..\appsettings.json" Link="appsettings.json" />
     </ItemGroup>
 
 

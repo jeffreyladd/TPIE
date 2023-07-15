@@ -1,6 +1,6 @@
 <Project>
   <ItemGroup>
-    <ProjectReference Include="..\TPIE.Data\TPIE.Data.csproj" />
+    <ProjectReference Include="..\TPIE\TPIE.csproj" />
     <ProjectReference Include="..\TPIE.UI\TPIE.UI.csproj" />
   </ItemGroup>
 

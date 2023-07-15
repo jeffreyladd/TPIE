@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Configuration;
+using System.Reflection;
 
 namespace TPIE.App
 {
@@ -16,12 +17,22 @@ namespace TPIE.App
 
             builder.Services.AddMauiBlazorWebView();
 
+            var ass = Assembly.GetExecutingAssembly();
+            using var appSettingsStream = ass.GetManifestResourceStream("appsettings.json");
+
+            var config = new ConfigurationBuilder()
+                        .AddJsonStream(appSettingsStream)
+                        .Build();
+
+
+            builder.Configuration.AddConfiguration(config);
+
 #if DEBUG
-		builder.Services.AddBlazorWebViewDeveloperTools();
+            builder.Services.AddBlazorWebViewDeveloperTools();
             //builder.Logging.AddDebug();
 #endif
 
-            builder.Services.SetupTPIE();
+            builder.Services.SetupTPIE_UI(builder.Configuration);
 
             return builder.Build();
         }

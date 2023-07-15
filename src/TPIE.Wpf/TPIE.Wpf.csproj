@@ -1,14 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
-	<Import Project="../Build.UI.targets"/>
-	<Import Project="../Version.targets"/>
+	<Import Project="../Build.UI.targets" />
+	<Import Project="../Version.targets" />
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net7.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
 	<RootNamespace>TPIE.Wpf</RootNamespace>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="..\appsettings.Development.json" Link="appsettings.Development.json">
+		<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	</Content>
+    <Content Include="..\appsettings.json" Link="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Wpf" Version="7.0.92" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
   </ItemGroup>
 </Project>

@@ -15,7 +15,7 @@ public partial class MainWindow : Window
         var serviceCollection = new ServiceCollection();
         serviceCollection.AddWpfBlazorWebView();
         serviceCollection.AddBlazorWebViewDeveloperTools();
-        serviceCollection.SetupTPIE();
+        //serviceCollection.SetupTPIE_UI();
         Resources.Add("services", serviceCollection.BuildServiceProvider());
     }
 }
