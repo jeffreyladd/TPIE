@@ -7,6 +7,10 @@ parameters:
   type: string
 
 steps:
+  - task: CmdLine@2
+    displayName: 'Make Appsettings.Development.json'
+    inputs:
+      script: 'copy src\appsettings.json src\appsettings.Development.json'
   - task: UseDotNet@2
     displayName: 'Install dotnet 7'
     inputs:
