@@ -5,4 +5,22 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
+	<ItemGroup>
+		<Content Include="..\appsettings.Development.json" Link="appsettings.Development.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Include="..\appsettings.json" Link="appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<Target Name="CustomAfterBuild" AfterTargets="Build">
+		<ItemGroup>
+			<_FilesToCopy Include="$(MSBuildThisFileDirectory)\..\appsettings.json;$(MSBuildThisFileDirectory)\..\appsettings.Development.json"/>
+		</ItemGroup>
+
+		<Copy SourceFiles="@(_FilesToCopy)"
+			  DestinationFiles=
+          "@(_FilesToCopy->'$(MSBuildThisFileDirectory)%(RecursiveDir)%(Filename)%(Extension)')"/>
+	</Target>
 </Project>

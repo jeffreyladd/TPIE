@@ -396,5 +396,11 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-/src/TPIE/wwwroot/Site.css
-/src/TPIE/wwwroot/Site.js
+/src/appsettings.Development.json
+/docfx_project/_site
+/src/TPIE.App/appsettings.Development.json
+/src/TPIE.App/appsettings.json
+/src/TPIE.Web/appsettings.Development.json
+/src/TPIE.Web/appsettings.json
+/src/TPIE.Wpf/appsettings.Development.json
+/src/TPIE.Wpf/appsettings.json
