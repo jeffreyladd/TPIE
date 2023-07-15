@@ -1,12 +1,13 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
+using TPIE.UI;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
-builder.Services.SetupTPIE_UI(builder.Configuration);
+builder.Services.SetupTPIEUI(builder.Configuration);
 
 var app = builder.Build();
 

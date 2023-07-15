@@ -16,6 +16,16 @@
     </Content>
   </ItemGroup>
 
+	<Target Name="CustomAfterBuild" AfterTargets="Build">
+		<ItemGroup>
+			<_FilesToCopy Include="$(MSBuildStartupDirectory)\appsettings.json;$(MSBuildStartupDirectory)\appsettings.Development.json"/>
+		</ItemGroup>
+
+		<Copy SourceFiles="@(_FilesToCopy)"
+			  DestinationFiles=
+          "@(_FilesToCopy->'$(MSBuildThisFileDirectory)%(RecursiveDir)%(Filename)%(Extension)')"/>
+	</Target>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Wpf" Version="7.0.92" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />

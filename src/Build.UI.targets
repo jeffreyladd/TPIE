@@ -3,5 +3,4 @@
     <ProjectReference Include="..\TPIE\TPIE.csproj" />
     <ProjectReference Include="..\TPIE.UI\TPIE.UI.csproj" />
   </ItemGroup>
-
 </Project>

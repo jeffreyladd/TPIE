@@ -10,6 +10,7 @@ using System.Reflection;
 using System.Runtime.InteropServices.JavaScript;
 using System.Threading.Tasks;
 using System.Windows;
+using TPIE.UI;
 
 namespace TPIE.Wpf
 {
@@ -38,7 +39,7 @@ namespace TPIE.Wpf
         {
             services.AddWpfBlazorWebView();
             services.AddBlazorWebViewDeveloperTools();
-            services.SetupTPIE_UI(context.Configuration);
+            services.SetupTPIEUI(context.Configuration);
         }
     }
 }

@@ -398,3 +398,9 @@ FodyWeavers.xsd
 *.sln.iml
 /src/appsettings.Development.json
 /docfx_project/_site
+/src/TPIE.App/appsettings.Development.json
+/src/TPIE.App/appsettings.json
+/src/TPIE.Web/appsettings.Development.json
+/src/TPIE.Web/appsettings.json
+/src/TPIE.Wpf/appsettings.Development.json
+/src/TPIE.Wpf/appsettings.json

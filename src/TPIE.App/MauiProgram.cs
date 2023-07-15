@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using System.Reflection;
+using TPIE.UI;
 
 namespace TPIE.App
 {
@@ -32,7 +33,7 @@ namespace TPIE.App
             //builder.Logging.AddDebug();
 #endif
 
-            builder.Services.SetupTPIE_UI(builder.Configuration);
+            builder.Services.SetupTPIEUI(builder.Configuration);
 
             return builder.Build();
         }

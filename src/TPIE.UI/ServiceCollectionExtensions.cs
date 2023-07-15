@@ -2,19 +2,34 @@
 using Blazorise.Bulma;
 using Blazorise.Icons.FontAwesome;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace Microsoft.Extensions.DependencyInjection;
+namespace TPIE.UI;
 
 public static class ServiceCollectionExtensions
 {
     /// <summary>
-    /// Extension Method to setup all the TPIE Dependencies.
+    /// Extension Method to setup all the TPIE.UI Dependencies.
     /// </summary>
     /// <param name="services">The Service Collection for DI.</param>
+    /// <param name="config">The configuration.</param>
     /// <returns></returns>
-    public static IServiceCollection SetupTPIE_UI(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection SetupTPIEUI(this IServiceCollection services, IConfiguration configuration)
         => services.SetupTPIE(configuration)
-                    .AddBlazorise(options =>
+                    .InternalSetup();
+
+    /// <summary>
+    /// Extension Method to setup all the TPIE.UI Dependencies.
+    /// </summary>
+    /// <param name="services">The Service Collection for DI.</param>
+    /// <param name="config">The configuration.</param>
+    /// <returns></returns>
+    public static IServiceCollection SetupTPIEUI(this IServiceCollection services, Action<TPIEConfig> config)
+        => services.SetupTPIE(config)
+                    .InternalSetup();
+
+    static IServiceCollection InternalSetup(this IServiceCollection services)
+        => services.AddBlazorise(options =>
                     {
                         options.Immediate = true;
                     })
