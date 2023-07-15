@@ -398,3 +398,5 @@ FodyWeavers.xsd
 *.sln.iml
 /src/TPIE/wwwroot/Site.css
 /src/TPIE/wwwroot/Site.js
+/src/appsettings.Development.json
+/src/appsettings.json
