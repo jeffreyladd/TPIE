@@ -16,7 +16,7 @@
 
 	<Target Name="CustomAfterBuild" AfterTargets="Build">
 		<ItemGroup>
-			<_FilesToCopy Include="$(MSBuildStartupDirectory)\appsettings.json;$(MSBuildStartupDirectory)\appsettings.Development.json"/>
+			<_FilesToCopy Include="$(MSBuildThisFileDirectory)\..\appsettings.json;$(MSBuildThisFileDirectory)\..\appsettings.Development.json"/>
 		</ItemGroup>
 
 		<Copy SourceFiles="@(_FilesToCopy)"
