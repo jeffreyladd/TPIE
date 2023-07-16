@@ -93,8 +93,8 @@ steps:
   - task: GitHubRelease@1
     enabled: ${{ parameters.doPublish }}
     inputs:
-      gitHubConnection: 'github.com_jeffreyladd'
-      repositoryName: 'jeffreyladd/TPIE'
+      gitHubConnection: 'GitHub - jeffreyladd'
+      repositoryName: 'tpieorg/TPIE'
       action: 'create'
       target: '$(Build.SourceVersion)'
       tagSource: 'gitTag'
